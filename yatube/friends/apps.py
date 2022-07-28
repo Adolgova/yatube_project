@@ -1,5 +1,8 @@
 from django.apps import AppConfig
 
 
-class FriendsConfig(AppConfig):
-    name = 'friends'
+class PostsConfig(AppConfig):
+    name = 'posts'
+
+
+
