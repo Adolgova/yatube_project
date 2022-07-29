@@ -3,6 +3,10 @@
 from django.shortcuts import render
 
 def index(request):
-    template = 'posts/index.html'
+    template = 'group/index.html'
+    return render(request, template)
+
+def group_posts(request, slug):
+    template = 'group/index.html'
     return render(request, template)
 
