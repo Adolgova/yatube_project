@@ -13,15 +13,18 @@
         <meta name="theme-color" content="#ffffff">
         <!-- Подключен файл со стандартными стилями бустрап -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <title>{% block title %}{% endblock title %}</title>
     </head>
-    <body>
+<body>
+    <header>
         {% include 'includes/header.html'%}
+    </header>
     <main>
-            {% block content %}
-            {% endblock content %}
+        {% block content %}
+        {% endblock %}
     </main>
+    <footer>
         {% include "includes/footer.html"%}
-    </body>
-    </html>
+    </footer>
+  </body>
+</html>
 
