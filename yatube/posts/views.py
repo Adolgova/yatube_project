@@ -4,19 +4,22 @@ from cgitb import text
 from turtle import title
 from typing import Text
 from django.shortcuts import render
+from .models import Post, Group
 
 def index(request):
+    posts = Post.objects.order_by('-pub_date')[:10]
     templates = 'posts/index.html'
     title = 'Это главная страница проекта Yatube'
     context = {
-        'title': title,
+        'posts': title,
     }
     return render(request, templates, context)
 
 def group_posts(request, slug):
-    templates = 'posts/group_list.html'
-    text  = 'Здесь будет информация о группах проекта Yatube'
+    group = get_object_or_404(Group, slug=slug)
+    posts = post.objects.filter(group=group).order_by('-pub_date')[:10]
     context = {
-        'text': text,
+        'group': group,
+        'posts': posts,
     }
-    return render(request, templates, context)
+    return render(request, 'posts/group_list.html', context)
