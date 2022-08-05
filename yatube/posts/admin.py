@@ -15,4 +15,15 @@ class PostAdmin(admin.ModelAdmin):
 # При регистрации модели Post источником конфигурации для неё назначаем
 # класс PostAdmin
 admin.site.register(Post, PostAdmin)  
-admin.site.register(Group)
+
+class GroupAdmin(admin.ModelAdmin):
+    # Перечисляем поля, которые должны отображаться в админке
+    list_display = ('pk','title', 'slug', 'description') 
+    # Добавляем интерфейс для поиска по тексту постов
+    search_fields = ('title',) 
+    # Добавляем возможность фильтрации по дате
+    list_filter = ('title',) 
+    # Это свойство сработает для всех колонок: где пусто — там будет эта строка 
+    empty_value_display = '-пусто-' 
+
+admin.site.register(Group, GroupAdmin)
